@@ -24,11 +24,17 @@
         }
         //Задание 7 и 8
         public function setAge($newAge) {
-            if($newAge >= 18) {
+            if($this->checkAge($newAge)) {
                 $this->age = $newAge;
+                return true;
             } else {
-                echo "Задание 8. Вам еще работать в нашей компании рано<br>";            
+                echo "Задание 8. Вам еще работать в нашей компании рано<br>";   
+                return false;         
             }
+        }
+        //Задание 9 и 10
+        private function checkAge($age) {
+            return $age >= 18;
         }
     }
     $employee1 = new Employee("Карина", 18, 100000);
@@ -41,6 +47,8 @@
     //Задание 6
     echo "Задание 6. Сумма зарплат через метод getSalary() - " . $employee1->getSalary($employee2) . " рублей<br>";
     //Задание 7
-    $employee2->setAge(20);
     echo "Задание 7. Новый возраст работника2 (через setAge()) - " . $employee2->getAge() . " лет<br>"; 
+    //Задание 9 
+    echo "Задание 9. Условие неверно - ничего" . $employee2->setAge(14);
+    //Задание 10
 ?>
